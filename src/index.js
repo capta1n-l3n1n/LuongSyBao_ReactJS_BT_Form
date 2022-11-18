@@ -8,7 +8,7 @@ import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import { productReducer } from "./components/redux/productReducer";
 
-const rootReducer = combineReducers({ chair: productReducer });
+const rootReducer = combineReducers({ product: productReducer });
 
 const store = createStore(
   rootReducer,
