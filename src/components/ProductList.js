@@ -5,13 +5,15 @@ import Product from "./Product";
 export class ProductList extends Component {
   render() {
     const { productList } = this.props;
-    console.log(this.props);
     return (
-      <div>
+      <div className="d-flex flex-column align-items-center">
         {productList.map((item) => {
           return (
             <div key={item.hang} className="d-flex">
-              <div style={{ width: "30px", marginTop: "1rem" }}>
+              <div
+                style={{ width: "30px", marginTop: "1rem" }}
+                className="text-light fw-bold"
+              >
                 {item.hang}
               </div>
               <div>
@@ -21,7 +23,6 @@ export class ProductList extends Component {
               </div>
             </div>
           );
-          // return <div>{item.hang}</div>;
         })}
       </div>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import clsx from "clsx";
+import "./Product.css";
 
 export class Product extends Component {
   render() {
@@ -32,7 +33,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     handleProduct: (product) => {
       dispatch({
-        type: "CHANGE_CHAIR",
+        type: "product/setSelectedSeat",
         payload: product,
       });
     },

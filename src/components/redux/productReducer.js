@@ -176,8 +176,41 @@ const initialState = {
 
 export const productReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    //   case first:
-    //     return { ...state, ...payload }
+    case "product/setSelectedSeat": {
+      const data = [...state.productsSelectedList];
+
+      const index = data.findIndex((item) => item.soGhe === payload.soGhe);
+
+      if (index !== -1) {
+        data.splice(index, 1);
+      } else {
+        data.push(payload);
+      }
+
+      return { ...state, productsSelectedList: data };
+    }
+    case "result/setSeat": {
+      //valid check
+      if (!state.productsSelectedList.length) {
+        alert("Chưa có ghế nào được chọn");
+        return state;
+      }
+      if (!window.confirm("Xác nhận thanh toán?")) return state;
+      //
+      const data = state.productsList.map((item) => {
+        const dsGhe = item.danhSachGhe.map((seat) => {
+          state.productsSelectedList.forEach((ele) => {
+            if (seat.soGhe === ele.soGhe) {
+              seat.daDat = true;
+            }
+          });
+          return seat;
+        });
+        return { ...item, danhSachGhe: dsGhe };
+      });
+      alert("Thanh toán thành công");
+      return { ...state, productList: data, productsSelectedList: [] };
+    }
 
     default:
       return state;

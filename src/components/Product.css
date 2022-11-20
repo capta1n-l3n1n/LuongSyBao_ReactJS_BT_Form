@@ -1,0 +1,19 @@
+.product {
+  width: 40px;
+  border-radius: 5px;
+  height: 40px;
+  margin: 0.5rem;
+  transition: all 0.25s;
+}
+.product:hover {
+  color: white;
+  background-color: black;
+}
+.product.booked {
+  background-color: red;
+  color: white;
+}
+.product.booking {
+  background-color: blueviolet;
+  color: aliceblue;
+}
