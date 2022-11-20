@@ -14,6 +14,7 @@
   color: white;
 }
 .product.booking {
-  background-color: blueviolet;
-  color: aliceblue;
+  background-color: #ffc107;
+  color: black;
+  border: #ffc107 1px solid;
 }
